@@ -2,8 +2,7 @@ title: Apple References Blog
 author: Apple References
 email: your-email@domain.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  This blog contains my research com.apple.system.privilege.
-  Undocumented api calls and input parameters for this packet. 
+com.apple.system.privilege. 
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
