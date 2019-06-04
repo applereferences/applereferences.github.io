@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "com.apple.system.privilege Generic Issues"
+date:   2017-06-28 20:03:36 +0530
+categories: Apple libraries
+---
+This blog contains my research com.apple.system.privilege.
+
+Is it safe to use 'com.apple.system.privilege' notification to detect device privileges and reachability changes? Or is it considered to be a private API? For now my code looks like this:
+
+```javascript
+CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),  
+                                nil,  
+                                callback,  
+                                "com.apple.system.privilege" as CFString,  
+                                nil,  
+                                .deliverImmediately); 
+```
+
+The problem is Reachability in iOS not always detects privilege switching. For instance, if we are switching from one context to the other that system already knows (because we have used it in the past) then it happens so fast that there's no 'Disconnected' event and I cannot track the actual switching moment. Solution above works but I am sure whether my app won't be rejected for publishing in the App Store..
+
+
